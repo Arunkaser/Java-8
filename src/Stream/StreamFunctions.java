@@ -18,10 +18,18 @@ public class StreamFunctions {
         System.out.println(list2.stream().limit(6).collect(Collectors.toList()));
 
         //min
-        System.out.println(list2.stream().min((val1,val2)-> val1.compareTo(val2)));
+        System.out.println(list2.stream().min((val1,val2)-> val1.compareTo(val2)).get());
 
         //max
-        System.out.println(list2.stream().max((val1,val2)-> val1.compareTo(val2)));
+        System.out.println(list2.stream().max((val1,val2)-> val1.compareTo(val2)).get());
+
+        //reduce
+
+        Integer reduced = list2.stream().reduce((val, com) -> {
+            return val + com;
+        }).get();
+
+        System.out.println(reduced);
     }
 
 }
